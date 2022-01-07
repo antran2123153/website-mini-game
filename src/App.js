@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { G2048, Sokoban, Tictactoe } from "./games";
 import { Home, GameHome } from "./pages";
 import { Bar } from "./components/Bar";
-import "./app.css";
+import "./App.css";
 
 function App(props) {
   return (
