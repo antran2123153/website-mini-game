@@ -1,0 +1,58 @@
+.game2048 {
+  height: 100vh;
+  width: 100vw;
+  background: url("https://raw.githubusercontent.com/antran2123153/image/main/gamevv/moon-black.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+}
+
+.game2048-inside {
+  padding-top: 50px;
+}
+
+.grid-container {
+  width: fit-content;
+  padding: 10px;
+  margin: auto;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgba(255, 255, 255, 0.295);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+  display: grid;
+  grid-gap: 10px;
+
+  border-radius: 5px;
+}
+
+.grid-item {
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+
+  display: flex;
+  height: 6rem;
+  width: 6rem;
+  font-size: 25px;
+  font-weight: 500;
+
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 2px -5px 2px inset;
+  transition: all 0.2s;
+}
+.grid-item-hidden {
+  display: flex;
+  opacity: 0.25;
+  height: 6rem;
+  width: 6rem;
+}
+
+.game2048-menu {
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+  color: whitesmoke;
+}

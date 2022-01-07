@@ -1,0 +1,25 @@
+.gamehome {
+  width: 100vw;
+  height: 100vh;
+  background-color: coral;
+}
+.gamehome-inside {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.game-item {
+  width: 300px;
+  height: 300px;
+  margin: auto 20px;
+  margin-top: calc((100vh - 300px) / 2);
+  box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px,
+    rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px,
+    rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+
+.game-item-img {
+  width: 100%;
+  height: auto;
+}

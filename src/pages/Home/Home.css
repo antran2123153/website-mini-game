@@ -1,0 +1,18 @@
+.home {
+  height: 100vh;
+  width: 100vw;
+  background-color: antiquewhite;
+}
+.home-inside {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.component {
+  width: 300px;
+  margin-top: calc((100vh - 300px) / 2);
+}
+.component-img {
+  width: 100%;
+  height: auto;
+}
