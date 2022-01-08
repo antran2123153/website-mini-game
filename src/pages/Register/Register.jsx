@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import "./Register.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import accountApi from "../../api/account";
 
 Register.propTypes = {};
 
@@ -13,16 +14,34 @@ function Register(props) {
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [saveLogin, setSaveLogin] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password.length < 6)
-      setPasswordMess("Password must be more than 6 characters");
-    else setPasswordMess("");
     if (username.length < 6)
       setUsernameMess("Username must be more than 6 characters");
-    else setUsernameMess("");
+    if (password.length < 6)
+      setPasswordMess("Password must be more than 6 characters");
+
+    let data = {
+      fullname,
+      password,
+      username,
+      birthday,
+    };
+
+    if (username.length >= 6 && password.length >= 6)
+      accountApi
+        .register(data)
+        .then((res) => {
+          console.log(res);
+          setUsernameMess("");
+          setPasswordMess("");
+          setFullname("");
+          setBirthday("");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   };
 
   return (
