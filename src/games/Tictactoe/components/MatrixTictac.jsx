@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { isWinBlock, selectMoves } from "./afunction";
 
 MatrixTictac.propTypes = {
   array: PropTypes.array,
@@ -23,18 +24,11 @@ function MatrixTictac(props) {
   const { array, handleClickCell, prevMove } = props;
 
   const handleSelect = (outIndex, inIndex) => {
-    if (prevMove === -1) {
-      handleClickCell(outIndex, inIndex);
+    let moves = selectMoves(array, prevMove);
+    for (let i = 0; i < moves.length; i += 2) {
+      if (outIndex === moves[i] && inIndex === moves[i + 1])
+        handleClickCell(outIndex, inIndex);
     }
-    if (prevMove !== outIndex) {
-      for (let i = 0; i < 9; i++) {
-        if (array[prevMove][i] !== 0) {
-          return;
-        }
-      }
-    }
-
-    if (array[outIndex][inIndex] === 0) handleClickCell(outIndex, inIndex);
   };
 
   const row1 = array.slice(0, 3).map((item, index) => {

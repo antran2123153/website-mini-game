@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import { machinePlay } from "./components/afunction";
+import { selectMoves } from "./components/afunction";
 import MatrixTictac from "./components/MatrixTictac";
 import "./Tictactoe.css";
 
@@ -18,19 +18,21 @@ function Tictactoe(props) {
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
   ]);
-
-  const [isPlayerStep, setIsPlayerStep] = useState(true);
   const [prevMove, setPrevMove] = useState(-1);
 
-  const handleClickCell = async (outIndex, inIndex) => {
+  const handleClickCell = (outIndex, inIndex) => {
     var arr = gameState.map(function (temp) {
       return temp.slice();
     });
-    arr[outIndex][inIndex] = isPlayerStep ? 1 : -1;
-    setIsPlayerStep(!isPlayerStep);
+    arr[outIndex][inIndex] = 1;
+    // setGameState(arr);
+    let moves = selectMoves(arr, inIndex);
+    console.log(moves);
+    let idx = Math.floor(Math.random() * (moves.length - 1));
+    if (idx % 2 !== 0) idx--;
+    arr[moves[idx]][moves[idx + 1]] = -1;
     setGameState(arr);
-
-    const nextStep = await machinePlay(gameState, inIndex);
+    setPrevMove(moves[idx + 1]);
   };
 
   return (

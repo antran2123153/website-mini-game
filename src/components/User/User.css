@@ -1,11 +1,11 @@
-.bar {
+.user {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   padding: 10px;
 }
 
-.bar-icon {
+.user-icon {
   font-size: 50pt;
   margin: 10px;
 }
