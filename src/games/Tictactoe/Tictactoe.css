@@ -1,38 +1,62 @@
 .tictactoe {
   height: 100vh;
   width: 100vw;
-  background: url("https://raw.githubusercontent.com/antran2123153/image/main/gamevv/moon-black.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: auto;
+  background: #1a2a6c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+  background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+  padding: 50px;
 }
 
-.matrix {
-  width: fit-content;
-  margin: auto;
-  margin-top: 50px;
-  padding: 20px;
+.block99 {
+  width: 500px;
+  height: 500px;
   background-color: white;
+  margin: auto;
 }
-.matrix-row {
+
+.block99-row,
+.block33-row {
+  height: 33.33333%;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
 }
 
-.mini-matrix {
-  margin: 2px;
+.block99-col,
+.block33-col {
+  width: 33.3333%;
+  height: 100%;
 }
 
-.row {
+.block33 {
+  border: 0.1px solid black;
+  width: 100%;
+  height: 100%;
+}
+
+.block33-col {
+  border: 0.1px solid black;
+  font-size: 50px;
   display: flex;
-  margin: 1px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-.cell {
-  text-align: center;
-  width: 50px;
-  height: 50px;
-  margin: 1px;
-  padding: 10px;
-  background-color: aquamarine;
+.block33-win {
+  font-size: 200px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tictactoe-menu {
+  margin: auto;
+  width: 500px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }

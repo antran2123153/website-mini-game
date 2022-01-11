@@ -15,6 +15,11 @@ function Home(props) {
             <img src={IMAGES.gameHome} alt="" className="component-img" />
           </Link>
         </div>
+        <div className="component">
+          <Link to="/documents">
+            <img src={IMAGES.documentHome} alt="" className="component-img" />
+          </Link>
+        </div>
       </Container>
     </main>
   );

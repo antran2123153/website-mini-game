@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { G2048, Sokoban, Tictactoe } from "./games";
-import { Home, GameHome, Login, Register } from "./pages";
+import { Home, GameHome, Login, Register, Document } from "./pages";
 import { Bar } from "./components/Bar";
 import User from "./components/User/User";
 import "./App.css";
@@ -20,6 +20,7 @@ function App(props) {
           <Route exact path="/games" element={<GameHome />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
+          <Route exact path="/documents" element={<Document />} />
           <Route exact path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
