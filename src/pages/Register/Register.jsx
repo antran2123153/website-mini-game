@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
-import "./Register.css";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import accountApi from "../../api/account";
+import "./Register.css";
 
 Register.propTypes = {};
 
@@ -14,6 +13,7 @@ function Register(props) {
   const [password, setPassword] = useState("");
   const [fullname, setFullname] = useState("");
   const [birthday, setBirthday] = useState("");
+  const [fullnameMess, setFullnameMess] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,23 +21,28 @@ function Register(props) {
       setUsernameMess("Username must be more than 6 characters");
     if (password.length < 6)
       setPasswordMess("Password must be more than 6 characters");
+    if (fullname.length < 6)
+      setFullnameMess("Fullname must be more than 6 characters");
 
-    let data = {
+    const data = {
       fullname,
       password,
       username,
       birthday,
     };
 
-    if (username.length >= 6 && password.length >= 6)
+    if (username.length >= 6 && password.length >= 6 && fullname.length > 6)
       accountApi
         .register(data)
         .then((res) => {
           console.log(res);
           setUsernameMess("");
           setPasswordMess("");
+          setFullnameMess("");
           setFullname("");
           setBirthday("");
+          setUsername("");
+          setPassword("");
         })
         .catch((err) => {
           console.log(err);
@@ -58,6 +63,11 @@ function Register(props) {
               onChange={(e) => setFullname(e.target.value)}
             />
           </Row>
+          {fullnameMess && (
+            <Row>
+              <span className="login-mess">{fullnameMess}</span>
+            </Row>
+          )}
           <Row>
             <input
               type="date"
@@ -82,7 +92,6 @@ function Register(props) {
           )}
           <Row>
             <input
-              type="text"
               className="login-input"
               type="password"
               placeholder="Enter password"

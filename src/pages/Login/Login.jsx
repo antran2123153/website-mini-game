@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import { Button, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import GoogleLogin from "react-google-login";
 
 Login.propTypes = {};
 
@@ -23,10 +24,26 @@ function Login(props) {
     else setUsernameMess("");
   };
 
+  const responseGoogle = (response) => {
+    console.log(response);
+  };
+
   return (
     <div className="login">
       <Container className="login-inside">
         <h2 className="login-header">LOGIN</h2>
+        <GoogleLogin
+          clientId="708721211319-1bbutknefun4fc4rmej21ks83e4or5nv.apps.googleusercontent.com"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />{" "}
+        <GoogleLogin
+          clientId="708721211319-1bbutknefun4fc4rmej21ks83e4or5nv.apps.googleusercontent.com"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+        />
         <form action="" className="login-form" onSubmit={handleSubmit}>
           <Row>
             <input
@@ -44,7 +61,6 @@ function Login(props) {
           )}
           <Row>
             <input
-              type="text"
               className="login-input"
               type="password"
               placeholder="Enter password"

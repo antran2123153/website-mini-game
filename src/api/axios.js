@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL: "https://gamevvbe.herokuapp.com",
   timeout: 1000,
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
+    "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
   },
 });
